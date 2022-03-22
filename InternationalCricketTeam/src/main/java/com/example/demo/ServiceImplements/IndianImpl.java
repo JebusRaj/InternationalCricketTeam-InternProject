@@ -76,5 +76,39 @@ public class IndianImpl implements IndianService {
 	}
 		return ConstantVariableDeclaration.taskCompletionMessage;
 }
-	
+
+	@Override
+	public String getPlayerForDuleepTrophy() {
+	   try { List<IndianEntity> india = db.findAll();
+	         List<IndianEntity> duleep = new ArrayList<IndianEntity>();
+	         for(IndianEntity IndianVO : india) {
+	        	 if(IndianVO.getTotalRuns()>3000) {
+	        		 duleep.add(IndianVO);
+	        	 }
+	         }
+	         System.out.println(duleep);
+	   }catch(Exception e){
+		   System.out.println(ConstantVariableDeclaration.exceptionMessage);
+		   
+	   }
+	   return ConstantVariableDeclaration.consoleCheckMessage;
 }
+
+	@Override
+	public String getPlayerForICCTrophy() {
+		try { List<IndianEntity> india = db.findAll();
+        List<IndianEntity> icc = new ArrayList<IndianEntity>();
+        for(IndianEntity IndianVO : india) {
+       	 if(IndianVO.getHundreds()>10) {
+       		 icc.add(IndianVO);
+       	 }
+        }
+        System.out.println(icc);
+  }catch(Exception e){
+	   System.out.println(ConstantVariableDeclaration.exceptionMessage);
+	   
+  }
+  return ConstantVariableDeclaration.consoleCheckMessage;
+	}
+}
+

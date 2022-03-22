@@ -9,5 +9,6 @@ public interface AustralianService {
 	public String deletePlayerDetails();
 	public String deleteTheAustralianPlayerByID();
 	public String getPlayersForAshesTrophy();
-
+    public String getPlayersForBorderGavaskarTrophy();
+    public String getPlatersForBBLTrophy();
 }

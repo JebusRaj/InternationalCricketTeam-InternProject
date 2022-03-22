@@ -9,6 +9,7 @@ public interface SouthAfricanService {
 	public String deletePlayerDetails();
 	public String updateTheSouthAfricanPlayername();
 	public String getPlayersForFreedomTrophy();
+	public String getPlayersForSAPLTrophy();
 
 	String updateTheSouthAfricanPlayername(SouthAfricanEntity southAfrica);
 

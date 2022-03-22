@@ -16,7 +16,7 @@ public class IndianTeamController {
 	IndianService sv;
 	@RequestMapping(value ="/getIndianPlayerDetails",method =RequestMethod.GET)
 	public  String getPlayerDetails() {
-		return sv.getPlayerDetails();
+		return sv.getAllIndianPlayerDetails();
 	}
 	@RequestMapping(value ="/saveIndianPlayerDetails",method =RequestMethod.POST)
 	public String savePlayerDetails(@RequestBody IndianEntity india) {
@@ -52,4 +52,12 @@ public class IndianTeamController {
 	public String getPlayerForRanjiTrophy() {
 		return sv.getPlayerForRanjiTrophy();
 	}
+	@RequestMapping(value = "/duleepTrophy",method = RequestMethod.GET)
+	public String getPlayerForDuleepTrophy() {
+		return sv.getPlayerForDuleepTrophy();
+	}
+	@RequestMapping(value = "/iccTrophy",method = RequestMethod.GET)
+	public String getPlayerForICCTrophy() {
+		return sv.getPlayerForICCTrophy();
+}
 }

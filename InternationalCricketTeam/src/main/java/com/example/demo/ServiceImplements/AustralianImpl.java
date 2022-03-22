@@ -37,6 +37,7 @@ public  class AustralianImpl implements AustralianService {
 			System.out.println(ConstantVariableDeclaration.exceptionMessage);
 		}
 		return ConstantVariableDeclaration.consoleCheckMessage;
+		
 	}
 	@Override
 	public String getPlayerDetails() {
@@ -70,4 +71,38 @@ public  class AustralianImpl implements AustralianService {
 		}
 		return ConstantVariableDeclaration.taskCompletionMessage;
 }
+
+	@Override
+	public String getPlayersForBorderGavaskarTrophy() {
+		try{List<AustralianEntity> australia = db.findAll();
+		List<AustralianEntity> borderGavaskar =new ArrayList<AustralianEntity>();
+		for(AustralianEntity AustralianVO: australia) {
+			if(AustralianVO.getAge()>16 && AustralianVO.getAge()<30) {
+				borderGavaskar.add(AustralianVO);
+			}
+		}
+		System.out.println(borderGavaskar); 
+		}catch(Exception e) {
+			System.out.println(ConstantVariableDeclaration.exceptionMessage);
+		}
+		return ConstantVariableDeclaration.consoleCheckMessage;
+		
+	}
+
+	@Override
+	public String getPlatersForBBLTrophy() {
+		try{List<AustralianEntity> australia = db.findAll();
+		List<AustralianEntity> bbl =new ArrayList<AustralianEntity>();
+		for(AustralianEntity AustralianVO: australia) {
+			if(AustralianVO.getAge()<40) {
+				bbl.add(AustralianVO);
+			}
+		}
+		System.out.println(bbl); 
+		}catch(Exception e) {
+			System.out.println(ConstantVariableDeclaration.exceptionMessage);
+		}
+		return ConstantVariableDeclaration.consoleCheckMessage;
+		
+	}
 }

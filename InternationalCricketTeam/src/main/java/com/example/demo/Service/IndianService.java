@@ -10,4 +10,6 @@ public interface IndianService {
 	public  String deletePlayerDetails();
 	public String getAllIndianPlayerDetails();
 	public String getPlayerForRanjiTrophy();
+	public String getPlayerForDuleepTrophy();
+	public String getPlayerForICCTrophy();
 }

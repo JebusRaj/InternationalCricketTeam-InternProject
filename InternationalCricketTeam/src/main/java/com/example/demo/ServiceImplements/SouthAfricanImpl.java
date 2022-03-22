@@ -76,6 +76,22 @@ public   class SouthAfricanImpl implements SouthAfricanService {
 		}
 		return ConstantVariableDeclaration.taskCompletionMessage;	
 }
+	@Override
+	public String getPlayersForSAPLTrophy() {
+		try{List<SouthAfricanEntity> southAfrica = db.findAll();
+		List<SouthAfricanEntity> sapl =new ArrayList<SouthAfricanEntity>();
+		for(SouthAfricanEntity SouthAfricanVO: southAfrica) {
+			if(SouthAfricanVO.getTotalRuns()>2000) {
+				sapl.add(SouthAfricanVO);
+			}
+		}
+		System.out.println(sapl);
+	} catch(Exception e) {
+		System.out.println(ConstantVariableDeclaration.exceptionMessage);
+	}
+		return ConstantVariableDeclaration.consoleCheckMessage;
+	
+	}
 }
 
 	

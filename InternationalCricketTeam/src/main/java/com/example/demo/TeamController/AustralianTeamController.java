@@ -53,5 +53,13 @@ public class AustralianTeamController {
 	public String getPlayersForAshesTrophy() {
 		return sv.getPlayersForAshesTrophy();
 	}
+	@RequestMapping(value ="/borderGavaskarTrophy",method=RequestMethod.GET)
+	public String getPlayersForBorderGavaskarTrophy() {
+		return sv.getPlayersForBorderGavaskarTrophy();
+	}
+	@RequestMapping(value ="/bblTrophy",method=RequestMethod.GET)
+	public String getPlayersForBBLTrophy() {
+		return sv.getPlatersForBBLTrophy();
+	}
 }
 
