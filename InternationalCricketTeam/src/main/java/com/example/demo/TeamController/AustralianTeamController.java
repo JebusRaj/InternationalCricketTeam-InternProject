@@ -1,5 +1,7 @@
 package com.example.demo.TeamController;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -60,6 +62,10 @@ public class AustralianTeamController {
 	@RequestMapping(value ="/bblTrophy",method=RequestMethod.GET)
 	public String getPlayersForBBLTrophy() {
 		return sv.getPlatersForBBLTrophy();
+	}
+	@RequestMapping(value = "australianPlayersForInternationalRanjiTrophy",method=RequestMethod.GET)
+	public List<AustralianEntity> fetchPlayerFromAllTeamForRanjiTrophy(){
+		return sv.fetchPlayerFromAllTeamForRanjiTrophy();
 	}
 }
 

@@ -92,6 +92,10 @@ public   class SouthAfricanImpl implements SouthAfricanService {
 		return ConstantVariableDeclaration.consoleCheckMessage;
 	
 	}
+	@Override
+	public List<SouthAfricanEntity> fetchPlayerFromAllTeamForRanjiTrophy() {
+		return db.findAll();
+	}
 }
 
 	

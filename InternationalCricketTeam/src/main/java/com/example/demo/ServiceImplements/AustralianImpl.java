@@ -105,4 +105,9 @@ public  class AustralianImpl implements AustralianService {
 		return ConstantVariableDeclaration.consoleCheckMessage;
 		
 	}
+
+	@Override
+	public List<AustralianEntity> fetchPlayerFromAllTeamForRanjiTrophy() {
+		return db.findAll();
+	}
 }

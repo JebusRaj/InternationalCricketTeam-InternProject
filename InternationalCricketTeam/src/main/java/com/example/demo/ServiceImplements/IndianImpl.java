@@ -110,5 +110,12 @@ public class IndianImpl implements IndianService {
   }
   return ConstantVariableDeclaration.consoleCheckMessage;
 	}
+	@Override
+	public List<IndianEntity> fetchPlayerFromAllTeamForRanjiTrophy() {
+	     return db.findAll();
+	   
+		
+	}
 }
+
 
