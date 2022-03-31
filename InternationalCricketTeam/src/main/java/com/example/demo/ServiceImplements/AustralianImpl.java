@@ -10,6 +10,7 @@ import com.example.demo.ConstantVariableDeclaration;
 import com.example.demo.Entity.AustralianEntity;
 import com.example.demo.Repositary.AustralianRepository;
 import com.example.demo.Service.AustralianService;
+import com.example.demo.VO.AustralianVO;
 @Service
 public  class AustralianImpl implements AustralianService {
 	@Autowired
@@ -106,8 +107,5 @@ public  class AustralianImpl implements AustralianService {
 		
 	}
 
-	@Override
-	public List<AustralianEntity> fetchPlayerFromAllTeamForRanjiTrophy() {
-		return db.findAll();
-	}
+	
 }

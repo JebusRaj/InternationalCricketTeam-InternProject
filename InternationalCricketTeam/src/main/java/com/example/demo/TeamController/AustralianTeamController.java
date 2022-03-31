@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.ConstantVariableDeclaration;
 import com.example.demo.Entity.AustralianEntity;
 import com.example.demo.Service.AustralianService;
+import com.example.demo.VO.AustralianVO;
 
 @RestController
 public class AustralianTeamController {
@@ -63,9 +64,5 @@ public class AustralianTeamController {
 	public String getPlayersForBBLTrophy() {
 		return sv.getPlatersForBBLTrophy();
 	}
-	@RequestMapping(value = "australianPlayersForInternationalRanjiTrophy",method=RequestMethod.GET)
-	public List<AustralianEntity> fetchPlayerFromAllTeamForRanjiTrophy(){
-		return sv.fetchPlayerFromAllTeamForRanjiTrophy();
 	}
-}
 

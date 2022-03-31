@@ -1,6 +1,7 @@
 package com.example.demo.Service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.example.demo.Entity.IndianEntity;
 
@@ -14,5 +15,5 @@ public interface IndianService {
 	public String getPlayerForRanjiTrophy();
 	public String getPlayerForDuleepTrophy();
 	public String getPlayerForICCTrophy();
-	public List<IndianEntity> fetchPlayerFromAllTeamForRanjiTrophy();
+	public  Map<Object,List<IndianEntity>> fetchPlayerForInternationalRanjiTrophy(Integer playername);
 }

@@ -65,10 +65,7 @@ public class SouthAfricanTeamController {
 	public String getPlayersForSAPLTrophy() {
 		return sv.getPlayersForSAPLTrophy();
 	}
-	@RequestMapping(value ="/southAfricanPlayersForInternationalRanjiTrophy",method=RequestMethod.GET)
-	public List<SouthAfricanEntity> fetchPlayerFromAllTeamForRanjiTrophy() {
-		return sv.fetchPlayerFromAllTeamForRanjiTrophy();
-	}
+	
 }
 
 

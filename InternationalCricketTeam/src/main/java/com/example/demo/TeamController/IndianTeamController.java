@@ -1,6 +1,7 @@
 package com.example.demo.TeamController;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.demo.ConstantVariableDeclaration;
 import com.example.demo.Entity.IndianEntity;
 import com.example.demo.Service.IndianService;
+import com.example.demo.VO.IndianVO;
 
 @RestController
 public class IndianTeamController {
@@ -62,8 +64,8 @@ public class IndianTeamController {
 	public String getPlayerForICCTrophy() {
 		return sv.getPlayerForICCTrophy();
 }
-	@RequestMapping(value="IndianPlayersForInternationalRanjiTrophy",method = RequestMethod.GET)
-	public List<IndianEntity>  fetchPlayerFromAllTeamForRanjiTrophy() {
-		return sv.fetchPlayerFromAllTeamForRanjiTrophy();
+	@RequestMapping(value="InternationalRanjiTrophy",method = RequestMethod.GET)
+	public   Map<Object,List<IndianEntity>> fetchPlayerForInternationalRanjiTrophy(Integer playerAge) {
+		return sv.fetchPlayerForInternationalRanjiTrophy(playerAge);
 	}
 }

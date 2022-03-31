@@ -1,7 +1,10 @@
 package com.example.demo.ServiceImplements;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,6 +14,7 @@ import com.example.demo.ConstantVariableDeclaration;
 import com.example.demo.Entity.IndianEntity;
 import com.example.demo.Repositary.IndianRepository;
 import com.example.demo.Service.IndianService;
+import com.example.demo.VO.IndianVO;
 @Service
 public class IndianImpl implements IndianService {
 
@@ -110,12 +114,33 @@ public class IndianImpl implements IndianService {
   }
   return ConstantVariableDeclaration.consoleCheckMessage;
 	}
+
 	@Override
-	public List<IndianEntity> fetchPlayerFromAllTeamForRanjiTrophy() {
-	     return db.findAll();
-	   
-		
+	public   Map<Object,List<IndianEntity>> fetchPlayerForInternationalRanjiTrophy(Integer playerAge ) {
+	     List<IndianEntity> india = db.fetchPlayerForInternationalRanjiTrophy(playerAge);
+	     List<IndianEntity> intTrophy = new ArrayList<IndianEntity>();
+	     intTrophy.addAll(india);
+	   Map<Object,List<IndianEntity>> ranjiMap = new HashMap<Object,List<IndianEntity>>();
+	   int count =1;
+	   int team = 1;
+	   List<IndianEntity> trophy = new ArrayList<IndianEntity>(); 
+	   for(IndianEntity ranjiTrophy : intTrophy) {
+		   if (count<=11) {
+			   if(ranjiTrophy != null) {
+				   trophy.add(ranjiTrophy);
+			   }
+			   count ++;
+		   }else {
+			   List<IndianEntity> itrophy = new ArrayList<IndianEntity>(trophy);
+			  ranjiMap.put("TEAM" +team,itrophy);
+			  trophy.clear();
+			   team +=1;
+			   count =1; 
+		   }
+	   }
+		return ranjiMap;
 	}
-}
+
+	}
 
 
