@@ -2,9 +2,11 @@ package com.example.demo.ServiceImplements;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.TreeMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -120,24 +122,34 @@ public class IndianImpl implements IndianService {
 	     List<IndianEntity> india = db.fetchPlayerForInternationalRanjiTrophy(playerAge);
 	     List<IndianEntity> intTrophy = new ArrayList<IndianEntity>();
 	     intTrophy.addAll(india);
+	     System.out.println(intTrophy);
 	   Map<Object,List<IndianEntity>> ranjiMap = new HashMap<Object,List<IndianEntity>>();
 	   int count =1;
 	   int team = 1;
-	   List<IndianEntity> trophy = new ArrayList<IndianEntity>(); 
+	   List<IndianEntity> trophy = new ArrayList<IndianEntity>();
 	   for(IndianEntity ranjiTrophy : intTrophy) {
 		   if (count<=11) {
-			   if(ranjiTrophy != null) {
+			   if(ranjiTrophy != null ) {
 				   trophy.add(ranjiTrophy);
+				   ranjiMap.put("TEAM" +7, trophy);
+				   int size = Math.round(trophy.size());
+					 System.out.println(Math.round(size));
+				  
 			   }
 			   count ++;
-		   }else {
-			   List<IndianEntity> itrophy = new ArrayList<IndianEntity>(trophy);
-			  ranjiMap.put("TEAM" +team,itrophy);
-			  trophy.clear();
-			   team +=1;
-			   count =1; 
 		   }
-	   }
+		   else {
+			   List<IndianEntity> itrophy = new ArrayList<IndianEntity>(trophy);
+			  ranjiMap.put("TEAM" + team, itrophy);
+			  trophy.clear();
+			  trophy.add(ranjiTrophy);
+			  int size = Math.round(trophy.size());
+				 System.out.println(Math.round(size));
+			   team +=1;
+			   count = 2;
+		   }
+		   }
+	   
 		return ranjiMap;
 	}
 
