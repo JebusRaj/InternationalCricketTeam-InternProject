@@ -122,20 +122,18 @@ public class IndianImpl implements IndianService {
 	     List<IndianEntity> india = db.fetchPlayerForInternationalRanjiTrophy(playerAge);
 	     List<IndianEntity> intTrophy = new ArrayList<IndianEntity>();
 	     intTrophy.addAll(india);
-	     System.out.println(intTrophy);
 	   Map<Object,List<IndianEntity>> ranjiMap = new HashMap<Object,List<IndianEntity>>();
 	   int count =1;
 	   int team = 1;
 	   List<IndianEntity> trophy = new ArrayList<IndianEntity>();
+	   if( intTrophy.size() % 11 ==0) {
+	   double size = intTrophy.size()/11d;
+	     int floor= (int) Math.floor(size);
 	   for(IndianEntity ranjiTrophy : intTrophy) {
 		   if (count<=11) {
 			   if(ranjiTrophy != null ) {
 				   trophy.add(ranjiTrophy);
-				   ranjiMap.put("TEAM" +7, trophy);
-				   int size = Math.round(trophy.size());
-					 System.out.println(Math.round(size));
-				  
-			   }
+		   }
 			   count ++;
 		   }
 		   else {
@@ -143,16 +141,32 @@ public class IndianImpl implements IndianService {
 			  ranjiMap.put("TEAM" + team, itrophy);
 			  trophy.clear();
 			  trophy.add(ranjiTrophy);
-			  int size = Math.round(trophy.size());
-				 System.out.println(Math.round(size));
 			   team +=1;
 			   count = 2;
 		   }
 		   }
-	   
-		return ranjiMap;
+   return ranjiMap;
+	   }else {
+		   double size = intTrophy.size()/11d;
+		   int ceil = (int) Math.ceil(size);
+		   for(IndianEntity ranjiTrophy : intTrophy) {
+			   if (count<=11) {
+				   if(ranjiTrophy != null ) {
+					   trophy.add(ranjiTrophy);
+					   ranjiMap.put("TEAM" + ceil,trophy);
+			   }
+				   count ++;
+			   }
+			   else {
+				   List<IndianEntity> itrophy = new ArrayList<IndianEntity>(trophy);
+				  ranjiMap.put("TEAM" + team, itrophy);
+				  trophy.clear();
+				  trophy.add(ranjiTrophy);
+				   team +=1;
+				   count = 2;
+			   }
+			   }
+	   return ranjiMap;
+	   }
 	}
-
 	}
-
-
